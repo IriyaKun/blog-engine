@@ -1,7 +1,8 @@
 ﻿using System;
+using System.IO;
 using BlogEngine.DLL.Models;
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.EntityFrameworkCore.Extensions;
+using Newtonsoft.Json;
 
 namespace BlogEngine.DLL
 {
@@ -12,15 +13,20 @@ namespace BlogEngine.DLL
 
         private IConfiguration _configuration;
 
-        public BlogEngineDbContext(IConfiguration configuration)
+        public BlogEngineDbContext()
         {
-            _configuration = configuration;
+            using(StreamReader r = new StreamReader("Helpers/BlogConfiguration.json"))
+            {
+                var json = r.ReadToEnd();
+
+                _configuration = JsonConvert.DeserializeObject<BlogConfiguration>(json);
+            }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //TODO
-            switch(_configuration.dbProvider)
+            switch(_configuration.DbProvider)
             {
                 case "SQL_SERVER": 
                 {
@@ -29,7 +35,7 @@ namespace BlogEngine.DLL
                 }
                 case "MY_SQL": 
                 {
-                        optionsBuilder.UseMySQL("server=localhost;UserId=root;Password=bangarang12;database=blogEngineDb;");
+                        optionsBuilder.UseMySQL(_configuration.ConnectionString);
                         break;
                 }
                 default: { break; };

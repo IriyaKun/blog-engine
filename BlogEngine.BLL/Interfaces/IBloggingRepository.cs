@@ -4,12 +4,12 @@ using BlogEngine.DLL.Models;
 
 namespace BlogEngine.BLL.Interfaces
 {
-    public interface IBloggingRepository
+    public interface IBloggingRepository<T> where T:class
     {
-        BlogOperationResult Add(IModel entity);
+        BlogOperationResult Add(T entity);
         BlogOperationResult Remove();
-        BlogOperationResult Update(IModel entity);
+        BlogOperationResult Update(T entity);
 
-        IEnumerable<IModel> ToEnumerable();
+        IEnumerable<T> ToEnumerable();
     }
 }

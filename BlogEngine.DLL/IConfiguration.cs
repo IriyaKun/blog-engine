@@ -3,7 +3,7 @@ namespace BlogEngine.DLL
 {
     public interface IConfiguration
     {
-        string dbProvider { get; set; }
-        string connectionString { get; set; }
+        string DbProvider { get; set; }
+        string ConnectionString { get; set; }
     }
 }

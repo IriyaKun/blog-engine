@@ -1,0 +1,4 @@
+{
+  "DbProvider": "MY_SQL",
+  "ConnectionString": "server=localhost;UserId=root;Password=bangarang12;database=blogEngineDb;"
+}
