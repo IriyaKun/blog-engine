@@ -7,8 +7,10 @@ namespace BlogEngine.BLL.Interfaces
     public interface IBloggingRepository<T> where T:class
     {
         BlogOperationResult Add(T entity);
-        BlogOperationResult Remove();
+        BlogOperationResult Remove(T entity);
         BlogOperationResult Update(T entity);
+
+        bool Exists(T entity);
 
         IEnumerable<T> ToEnumerable();
     }

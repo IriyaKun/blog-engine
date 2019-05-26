@@ -15,7 +15,7 @@ namespace BlogEngine.DLL
 
         public BlogEngineDbContext()
         {
-            using(StreamReader r = new StreamReader("Helpers/BlogConfiguration.json"))
+            using(StreamReader r = new StreamReader("C:/Users/quiet/Desktop/Projects/blog-engine/BlogEngine.DLL/Helpers/BlogConfiguration.json"))
             {
                 var json = r.ReadToEnd();
 
