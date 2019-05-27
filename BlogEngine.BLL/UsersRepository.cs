@@ -19,7 +19,10 @@ namespace BlogEngine.BLL
 
         public UsersRepository()
         {
-
+            using (_db = new BlogEngineDbContext())
+            {
+                _db.Database.EnsureCreated();
+            }
         }
 
         public BlogOperationResult Add(User entity)
@@ -53,6 +56,14 @@ namespace BlogEngine.BLL
             }
 
             return BlogOperationResult.OK;
+        }
+
+        public User Get(int id)
+        {
+            using (_db = new BlogEngineDbContext())
+            {
+                return _db.Users.FirstOrDefault(user => user.Id == id);
+            }
         }
 
         public BlogOperationResult Update(User entity)

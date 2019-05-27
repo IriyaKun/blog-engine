@@ -10,6 +10,8 @@ namespace BlogEngine.BLL.Interfaces
         BlogOperationResult Remove(T entity);
         BlogOperationResult Update(T entity);
 
+        T Get(int id);
+
         bool Exists(T entity);
 
         IEnumerable<T> ToEnumerable();

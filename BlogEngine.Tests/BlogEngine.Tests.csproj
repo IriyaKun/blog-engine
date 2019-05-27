@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlogEngine.BLL\BlogEngine.BLL.csproj" />
     <ProjectReference Include="..\BlogEngine.DLL\BlogEngine.DLL.csproj" />
   </ItemGroup>
 </Project>
