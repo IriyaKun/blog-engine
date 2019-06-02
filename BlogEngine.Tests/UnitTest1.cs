@@ -32,7 +32,7 @@ namespace BlogEngine.Tests
         [Fact]
         public void UserShouldBeRemoved()
         {
-            var user = _repo.Get(1);
+            var user = _repo.Get("ilyasrevenge");
             Assert.Equal(BlogOperationResult.OK, _repo.Remove(user));
         }
     }

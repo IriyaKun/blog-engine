@@ -58,11 +58,11 @@ namespace BlogEngine.BLL
             return BlogOperationResult.OK;
         }
 
-        public User Get(int id)
+        public User Get(string login)
         {
             using (_db = new BlogEngineDbContext())
             {
-                return _db.Users.FirstOrDefault(user => user.Id == id);
+                return _db.Users.FirstOrDefault(user => user.Login == login);
             }
         }
 

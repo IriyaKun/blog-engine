@@ -10,7 +10,7 @@ namespace BlogEngine.BLL.Interfaces
         BlogOperationResult Remove(T entity);
         BlogOperationResult Update(T entity);
 
-        T Get(int id);
+        T Get(string login);
 
         bool Exists(T entity);
 
